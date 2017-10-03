@@ -1,0 +1,85 @@
+﻿<?php
+$this->load->view("_header.php");
+
+?>
+<div id="mainBody">
+	<div class="container">
+	<div class="row">
+	
+	<div id="sidebar" class="span3">	
+	
+		<h5 class="title-bg">ÜYE İŞLEMLERİ</h5>
+		<ul id="sideManu" class="nav nav-tabs nav-stacked">
+			<li ><a href="<?=base_url()?>Home/uyepanel"> Profil Bilgilerim</a>
+				
+			</li>
+			<li ><a href="<?=base_url()?>Home/siparislerim"> Siparişlerim </a>
+			
+			</li>
+			<li ><a href="<?=base_url()?>Home/sepetim" >Sepetim</a>
+				
+			</li>
+			<li><a href="products.html">Yorumlarım</a></li>
+			<li><a href="products.html">Favori Ürünler</a></li>
+			<li><a href="<?=base_url()?>Home/cikis_yap">Çıkış</a></li>
+		</ul>
+		<br/>
+		 
+			
+	</div>
+	<div class="span9">
+   
+	
+	<div class="well">
+	<h5 class="title-bg">Yapılan Siparişler</h5>
+     <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Tarih</th>
+				  <th>Tutar</th>
+                  <th>Durum</th>
+				   <th>Detay</th>
+				   
+                  
+				</tr>
+              </thead>
+			     <tbody>
+            
+			  <?php
+			  $sn=0;
+			  $top=0;
+	        foreach($veriler as $rs)
+          	{   $sn++;
+				
+				
+         	?>
+    
+                <tr>
+				<td><?=$sn?></td>
+                
+                <td><?=$rs->tarih?></td> 
+				
+                <td> <?=$rs->tutar?> TL</td>
+                <td><?=$rs->durum?></td> 
+				
+              <td><button class="btn btn-danger" type="button"><a href="<?=base_url()?>Home/siparis_detay/<?=$rs->Id?>"><i class="icon-search icon-red"></i></a></button></td>
+                </tr>
+				<?php
+  
+	}
+  ?>
+    
+				</tbody>
+            </table>
+		
+		
+</div>
+</div>
+</div>
+</div>
+
+
+<?php
+$this->load->view("_footer.php");
+?>
